@@ -1,7 +1,8 @@
 import React from "react";
 import { ReactComponent as BoltIcon } from "../icons/bolt.svg";
 
-export function DropDownMenu() {
+export function DropDownMenu({ submenus }) {
+  console.log(submenus);
   function DropDownItem(props) {
     return (
       <a href="#" className="menu-item">
@@ -11,9 +12,9 @@ export function DropDownMenu() {
   }
   return (
     <div className="dropdown">
-      <DropDownItem>My profile</DropDownItem>
-      <DropDownItem>Settings</DropDownItem>
-      <DropDownItem>Log out</DropDownItem>
+      {submenus.map((e) => (
+        <DropDownItem>{e}</DropDownItem>
+      ))}
     </div>
   );
 }
